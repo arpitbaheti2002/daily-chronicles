@@ -1,0 +1,114 @@
+*{
+  padding: 0;
+  margin: 0;
+}
+
+.header{
+  background-color: #1fd655;
+  padding: 16px;
+  box-shadow: 0px 0px 10px 0px rgb(0,0,0,0.3);
+}
+
+.heading{
+  color: white;
+  font-family: 'McLaren', cursive;
+  font-weight: 400;
+}
+
+.Notes{
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.add-note{
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+}
+
+.form{
+  position: relative;
+  height: 100%;
+  width: 25vw;
+  background-color: #fff;
+  margin: 16px;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0px 5px 10px #ccc;
+  margin-bottom: 25px;
+}
+
+.form-heading{
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  width: 95%;
+  margin: 5px;
+  font-weight: 800;
+  border: 0;
+  outline: none;
+}
+
+.form-body{
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin: 5px;
+  width: 95%;
+  border: 0;
+  resize: none;
+  outline: none;
+}
+
+.add-button{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  right: 20px;
+  bottom: -25px;
+  border-radius: 100%;
+  border: 0;
+  background-color: #1fd655;
+  color: #fff;
+}
+
+.note{
+  width: 240px;
+  height: 100%;
+  background-color: #fff;
+  margin: 16px;
+  padding: 10px;
+  border-radius: 7px;
+  box-shadow: 0px 5px 10px #ccc;
+}
+
+.note-heading{
+  font-size: 1.2rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+}
+
+.note-text{
+  font-size: 1.1rem;
+  font-family: 'Montserrat', sans-serif;
+  margin-bottom: 10px;
+  word-wrap: break-word;
+}
+
+.delete-button{
+  border: 0;
+  background-color: #fff;
+  color: #1fd655;
+  float: right;
+  font-size: 0.9rem;
+}
+
+footer{
+  position: absolute;
+  text-align: center;
+  width: 100%;
+  bottom: 16px;
+}
+
+footer p{
+  color: #ccc;
+  font-size: 1rem;
+}
