@@ -3,25 +3,17 @@ import './App.css';
 
 import Header from './components/Header';
 import Note from './components/Note';
-import Footer from './components/Footer';
 import AddNote from './components/AddNote';
+import Quote from './components/Quote';
 
 function App() {
   const [notes, setNotes] = useState([]);
 
   useEffect(() => {
-    const handleBeforeUnload = (event) => {
-      const message = "You have unsaved changes. Are you sure you want to leave?";
-      event.returnValue = message;
-      return message;
-    };
-
-    window.addEventListener('beforeunload', handleBeforeUnload);
-
-    return () => {
-      window.removeEventListener('beforeunload', handleBeforeUnload);
-    };
-  }, [notes]);
+    let savedNotes = localStorage.getItem('chronicles')
+    savedNotes = savedNotes?JSON.parse(savedNotes):[]
+    setNotes(savedNotes)
+  }, []);
 
   function addNote(newNote) {
     setNotes((prevNotes) => {
@@ -30,11 +22,9 @@ function App() {
   }
 
   function deleteNote(id) {
-    setNotes((prevNotes) => {
-      return prevNotes.filter((noteItem, index) => {
-        return index !== id;
-      });
-    });
+    const updatedNotes = notes.filter((note, index) => index !== id);
+    setNotes(updatedNotes)
+    localStorage.setItem('chronicles', JSON.stringify(updatedNotes))
   }
 
   return (
@@ -46,9 +36,9 @@ function App() {
       <div className='Notes'>
         {notes.map((note, index) => (
           <Note key={index} id={index} title={note.title} content={note.content} deleteNote={deleteNote} />
-        ))}
+          ))}
       </div>
-      <Footer />
+      <Quote />
     </div>
   );
 }

@@ -4,18 +4,24 @@ function AddNote(props) {
   const [title,  setTitle] = useState('');
   const [text,  setText] = useState('');
 
-  function addNote(e)
-  {
+  function addNote(e) {
+    e.preventDefault();
+
     const note = {
       'title': title,
       'content': text
     }
 
+    let notes = localStorage.getItem('chronicles');
+    notes = notes ? JSON.parse(notes) : [];
+
+    notes.push(note);
+
+    localStorage.setItem('chronicles', JSON.stringify(notes));
+
     props.onAdd(note);
     setTitle('');
     setText('');
-
-    e.preventDefault();
   }
 
   return (
